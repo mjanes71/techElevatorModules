@@ -86,7 +86,7 @@ public class Exercises {
 		int totalValueQuartersInCents = 25;
 		int totalValueDimesInCents = 10;
 		int totalValueNickelsInCents = 10;
-		int totalValue = totalValueQuartersInCents + totalValueDimesInCents + totalValueNickelsInCents;
+		int totalValueInCents = totalValueQuartersInCents + totalValueDimesInCents + totalValueNickelsInCents;
 
         /*
         11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
@@ -103,59 +103,93 @@ public class Exercises {
         12. Mrs. Hilt bought a yoyo for 24 cents and a whistle for 14 cents. How
         much did she spend in all for the two toys?
         */
-		
+		int costYoyoInCents = 24;
+		int costWhistleInCents = 14;
+		int totalHiltSpent = costWhistleInCents + costYoyoInCents;
+
 
         /*
         13. Mrs. Hilt made 5 Rice Krispie Treats. She used 8 large marshmallows
         and 10 mini marshmallows.How many marshmallows did she use
         altogether?
         */
+		int totalLargeMarshmellows = 8;
+		int totalSmallMarshmellows = 10;
+		int totalMarshmellows = totalLargeMarshmellows + totalSmallMarshmellows;
 
         /*
         14. At Mrs. Hilt's house, there was 29 inches of snow, and Brecknock
         Elementary School received 17 inches of snow. How much more snow
         did Mrs. Hilt's house have?
         */
+		int snowAtHiltInInches = 29;
+		int snowAtBrecknockInInches = 17;
+		int differenceInSnowfallInInches = snowAtHiltInInches - snowAtBrecknockInInches;
+
 
         /*
         15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
         case. How much money does she have left?
         */
+		int costOfTruckInDollars = 3;
+		int costOfPencilCaseInDollars = 2;
+		int moneyAtStartInDollars = 10;
+		int moneyRemainingInDollars = moneyAtStartInDollars - (costOfTruckInDollars + costOfPencilCaseInDollars);
+
 
         /*
         16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
         marbles does he have now?
         */
+		int totalMarblesAtStart = 16;
+		int marblesLost = 7;
+		int totalMarblesRemaining = totalMarblesAtStart - marblesLost;
 
         /*
         17. Megan has 19 seashells. How many more seashells does she need to
         find to have 25 seashells in her collection?
         */
+		int seashellsAtStart = 19;
+		int desiredNumOfSeashells = 25;
+		int requiredSeashells = desiredNumOfSeashells - seashellsAtStart;
 
         /*
         18. Brad has 17 balloons. 8 balloons are red and the rest are green. How
         many green balloons does Brad have?
         */
+		int totalBalloons = 17;
+		int redBalloons = 8;
+		int greenBalloons = totalBalloons - redBalloons;
 
         /*
         19. There are 38 books on the shelf. Marta put 10 more books on the shelf.
         How many books are on the shelf now?
         */
+		int booksOnShelfAtStart = 38;
+		int booksAddedToShelf = 10;
+		int currentNumBooksOnShelf = booksOnShelfAtStart + booksAddedToShelf;
 
         /*
         20. A bee has 6 legs. How many legs do 8 bees have?
         */
+		int numberOfLegsOnBee = 6;
+		int numberOfBees = 8;
+		int calculateTotalNumOfLegs = numberOfLegsOnBee * numberOfBees;
 
         /*
         21. Mrs. Hilt bought an ice cream cone for 99 cents. How much would 2 ice
         cream cones cost?
         */
+		int costOfIceCreamConeInCents = 99;
+		int numberOfIceCreamCones = 2;
+		int calculateTotalCostOfIceCream = costOfIceCreamConeInCents * numberOfIceCreamCones;
 
         /*
         22. Mrs. Hilt wants to make a border around her garden. She needs 125
         rocks to complete the border. She has 64 rocks. How many more rocks
         does she need to complete the border?
         */
+
 
         /*
         23. Mrs. Hilt had 38 marbles. She lost 15 of them. How many marbles does
