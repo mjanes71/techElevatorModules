@@ -28,40 +28,65 @@ public class Exercises {
         3. 3 raccoons are playing in the woods. 2 go home to eat dinner. How
         many raccoons are left in the woods?
         */
+		 int totalRaccoons = 3;
+		 int raccoonsWhoLeft = 2;
+		 int raccoonsRemaining = totalRaccoons - raccoonsWhoLeft;
 
         /*
         4. There are 5 flowers and 3 bees. How many less bees than flowers?
         */
+		int numberOfFlowers = 5;
+		int numberofBees = 3;
+		int difference = numberOfFlowers - numberofBees;
 
         /*
         5. 1 lonely pigeon was eating breadcrumbs. Another pigeon came to eat
         breadcrumbs, too. How many pigeons are eating breadcrumbs now?
         */
+		int pigeonsAtStart = 1;
+		int pigeonsArrived = 1;
+		int totalCurentPigeons = pigeonsAtStart + pigeonsArrived;
 
         /*
         6. 3 owls were sitting on the fence. 2 more owls joined them. How many
         owls are on the fence now?
         */
+		int owlsAtStart = 3;
+		int owlsArrived = 2;
+		int totalCurrentOwls = owlsAtStart + owlsArrived;
 
         /*
         7. 2 beavers were working on their home. 1 went for a swim. How many
         beavers are still working on their home?
         */
+		int beaversWorkingInitially = 2;
+		int beaversOnBreak = 1;
+		int beaversStillWorking = beaversWorkingInitially - beaversOnBreak;
 
         /*
         8. 2 toucans are sitting on a tree limb. 1 more toucan joins them. How
         many toucans in all?
         */
+		int toucansAtStart = 2;
+		int toucansJoining = 1;
+		int totalToucans = toucansAtStart + toucansJoining;
 
         /*
         9. There are 4 squirrels in a tree with 2 nuts. How many more squirrels
         are there than nuts?
         */
+		int numberOfSquirrles = 4;
+		int numberOfNuts = 2;
+		int moreSquirrelsThanNuts = numberOfSquirrles - numberOfNuts;
 
         /*
         10. Mrs. Hilt found a quarter, 1 dime, and 2 nickels. How much money did
         she find?
         */
+		int totalValueQuartersInCents = 25;
+		int totalValueDimesInCents = 10;
+		int totalValueNickelsInCents = 10;
+		int totalValue = totalValueQuartersInCents + totalValueDimesInCents + totalValueNickelsInCents;
 
         /*
         11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
@@ -69,11 +94,16 @@ public class Exercises {
         Mrs. Flannery's class bakes 17 muffins. How many muffins does first
         grade bake in all?
         */
+		int muffinsBrier = 18;
+		int muffinsMacadams = 20;
+		int muffinsFlannery = 17;
+		int totalMuffins = muffinsBrier + muffinsFlannery + muffinsMacadams;
 
         /*
         12. Mrs. Hilt bought a yoyo for 24 cents and a whistle for 14 cents. How
         much did she spend in all for the two toys?
         */
+		
 
         /*
         13. Mrs. Hilt made 5 Rice Krispie Treats. She used 8 large marshmallows
