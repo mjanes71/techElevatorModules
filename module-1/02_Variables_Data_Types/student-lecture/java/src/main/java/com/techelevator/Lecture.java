@@ -172,6 +172,46 @@ public class Lecture {
 		26. Now set doneWithExercise to true.
 		*/
 		doneWithExercises = true;
+
+		int totalMoneyInCents = 50;
+		int costOfPencilInCents = 7;
+		int numOfPencilsCanBePurchased = totalMoneyInCents / costOfPencilInCents;
+		System.out.println(numOfPencilsCanBePurchased);
+
+		int totalNumOfCards = 94;
+		int cardsPerBox = 8;
+		int boxesFullOfCards = totalNumOfCards / cardsPerBox;
+		int leftOverCards = totalNumOfCards % cardsPerBox;
+		System.out.println(boxesFullOfCards);
+		System.out.println(leftOverCards);
+
+		int bakedCroissants = 17;
+		int numOfGuests = 7;
+		int numOfCroissantsPerGuest = bakedCroissants / numOfGuests;
+		System.out.println(numOfCroissantsPerGuest);
+
+		double squareFeetPerRoom = 168.0;
+		double squareFeetPerHourBill = squareFeetPerRoom / 2.15;
+		double squareFeetPerHourJill = squareFeetPerRoom / 1.90;
+		double squareFeetPerHourTeam = squareFeetPerHourBill + squareFeetPerHourJill;
+		int numOfRoomsToPaint = 5;
+		double hoursToCompleteJob = numOfRoomsToPaint * squareFeetPerRoom / squareFeetPerHourTeam;
+		numOfRoomsToPaint = 623;
+		int hoursPerDay = 8;
+		double daysToCompleteBigJob = (numOfRoomsToPaint * squareFeetPerRoom / squareFeetPerHourTeam) /hoursPerDay;
+		System.out.println(hoursToCompleteJob);
+		System.out.println(daysToCompleteBigJob);
+
+		String firstName = "Megan ";
+		String middleInitial = "R.";
+		String lastName = "Janes, ";
+		String fullName = lastName + firstName + middleInitial;
+		System.out.println(fullName);
+
+		double milesFromNewYorkToChicago = 800.0;
+		double milesTraveledSoFar = 537.0;
+		double percentTripCompleted = milesTraveledSoFar / milesFromNewYorkToChicago * 100.0;
+		System.out.println((int)percentTripCompleted);
 		
 	}
 
