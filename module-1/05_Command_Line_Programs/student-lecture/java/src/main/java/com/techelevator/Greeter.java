@@ -7,7 +7,7 @@ public class Greeter {
     public static void main(String[] args) {
         //1. Get user input
         System.out.print("Please enter your name: ");
-        String name = new Scanner(System.in).nextLine();
+        String name = new Scanner(System.in).nextLine(); // String is type, name is variable, nextLine() is a method
 
         //2. Do something with that input
         String greeting = "Good morning " + name + "!";
