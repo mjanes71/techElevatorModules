@@ -397,26 +397,25 @@ public class Exercises {
 	 */
 	public int last2(String str) {
 		int counter = 0;
-		String lastTwo = str.substring(str.length()-2);
-		String minusLastTwo = str.substring(0,str.length()-2);
-		if (!minusLastTwo.contains(lastTwo)){
-			counter = 0;
-		} else {
-			for (int i = 0; i < str.length()-2; i++){
-				Boolean foundOne = str.substring(i,i+2).equals(str.substring(str.length()-2));
-				if (foundOne){
+
+			if(str.length() <= 3){
+				counter = 0;
+			}else {
+				String lastTwo = str.substring(str.length()-2);
+
+			for (int i = 0; i < str.length()-2; i++) {
+				Boolean foundOne = str.substring(i, i + 2).equals(lastTwo);
+				if (foundOne) {
 					counter += 1;
 				}
-
-
-
 			}
+			}return counter;
 
-		}return counter;
-	}
+		}
+
 
 	/*
-	 Given a string, return a version where all the "x" have been removed. Except an "x" at the very start or end
+	28)  Given a string, return a version where all the "x" have been removed. Except an "x" at the very start or end
 	 should not be removed.
 	 stringX("xxHxix") → "xHix"
 	 stringX("abxxxcd") → "abcd"
@@ -427,7 +426,7 @@ public class Exercises {
 	}
 
 	/*
-	 Given a string, return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens" yields "kien".
+	 29) Given a string, return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens" yields "kien".
 	 altPairs("kitten") → "kien"
 	 altPairs("Chocolate") → "Chole"
 	 altPairs("CodingHorror") → "Congrr"
@@ -437,7 +436,7 @@ public class Exercises {
 	}
 
 	/*
-	 Suppose the string "yak" is unlucky. Given a string, return a version where all the "yak" are removed.
+	30) Suppose the string "yak" is unlucky. Given a string, return a version where all the "yak" are removed.
 	 The "yak" strings will not overlap.
 	 stringYak("yakpak") → "pak"
 	 stringYak("pakyak") → "pak"
