@@ -32,11 +32,13 @@ public class Card {
     public Card(){ // This is a constructor (no return, no void, named after class)
         setSuit("Hearts");
         setRank("Ace");
+        //can also rewrite this this("Hearts", "Ace") --> It calls the third constructor down
     }
 
     public Card(String suit){ // if you have multiple methods with the same name, they have to have different types in params
         setSuit(suit); //can only use one constructor at a time
         setRank("Ace");
+        //Could also write this this(suit, "Ace") b/c it calls on the construction in the constructor below
     }
 
     public Card(String suit, String rank){
@@ -88,6 +90,24 @@ public class Card {
     public boolean isHigherThan(Card otherCard){
         return getValue() > otherCard.getValue();
     }
+
+    public boolean isHigherThan(String rank){
+        return this.getValue() > rankValues.get(rank);
+    }
+    public String toString(){ // very very very common method written into classes
+        return getName();
+    }
+
+    public boolean equals(Object otherObject){ //another super common method written into classes
+        boolean result = false;
+        if(otherObject instanceof Card) { // make sure other object is a Card
+            Card otherCard = (Card) otherObject; //these two objects are equal if...
+            result = otherCard.getName().equals(this.getName());//their names are the same
+        }
+        return result;
+    }
+
+
 
 
 

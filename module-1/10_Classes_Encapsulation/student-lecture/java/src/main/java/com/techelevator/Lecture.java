@@ -42,7 +42,7 @@ public class Lecture {
 
         Card anotherCard = new Card ("Spades"); // can declare suit here b/c of the second constructor
 
-
+        System.out.println(myCard); //everything that system.out.println puts out is a string, so it knows to look for the toString method
 
 
 
