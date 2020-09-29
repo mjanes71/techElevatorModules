@@ -64,7 +64,7 @@ New unit tests have been added for this section. This section is complete when t
 The `Accountable` interface means that an object can be used in the accounting process for the customer.
 
 | Method Name | Return Type | Description                                          |
-| -------------- | --------- | --- | --- | ---------------------------------------------------- |
+| -------------- |  --- | ---------------------------------------------------- |
 | `getBalance()`        | `int`      | Returns the balance value of the account in dollars. |
 
 #### Step Three: Make `BankAccount` accountable
