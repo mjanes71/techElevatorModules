@@ -6,8 +6,10 @@ import java.util.Map;
 public class WordCount {
 
 	/*
-	 * Given an array of strings, return a Dictionary<string, int> with a key for
-	 * each different string, with the value the number of times that string appears
+	 * Given an array of strings, return a Dictionary<string, int> with a
+	 * key for
+	 * each different string, with the value the number of times
+	 * that string appears
 	 * in the array.
 	 *
 	 * ** A CLASSIC **

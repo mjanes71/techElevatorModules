@@ -11,7 +11,7 @@ public class AnimalGroupName {
         animals.put("rhino", "Crash");
         animals.put("giraffe", "Tower");
         animals.put("elephant", "Herd");
-        animals.put("lion", "Herd");
+        animals.put("lion", "Pride");
         animals.put("crow", "Murder");
         animals.put("pigeon", "Kit");
         animals.put("flamingo", "Pat");
