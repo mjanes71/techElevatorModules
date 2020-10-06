@@ -7,7 +7,7 @@ public class QuizQuestion {
 
     private String question;
     private List<String> answerChoices = new ArrayList<>();
-    private String correctAnswer;
+    private int correctAnswer;
 
 
     public QuizQuestion(String[] line){
@@ -15,7 +15,7 @@ public class QuizQuestion {
             if (i == 0) {
                 question = line[i];
             } else if (line[i].contains("*")) {
-                correctAnswer = line[i].substring(line.length-1);
+                correctAnswer = i;
                 answerChoices.add(line[i].replace("*", ""));
 
             } else {
@@ -33,7 +33,7 @@ public class QuizQuestion {
         return answerChoices;
     }
 
-    public String getCorrectAnswer(){
+    public int getCorrectAnswer(){
         return correctAnswer;
     }
 

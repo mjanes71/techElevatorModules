@@ -14,6 +14,8 @@ public class QuizMaker {
 		System.out.println("Where is the quiz file?");
 		String file = userInput.nextLine();
 		int counter = 1;
+		int numberOfQuestions = 0;
+		int numberCorrect = 0;
 
 
 		Path quizInput = Paths.get(file); //find file
@@ -31,9 +33,11 @@ public class QuizMaker {
 				}
 				System.out.println("Your answer: ");
 				String userAnswer = userInput.nextLine();
+				numberOfQuestions++;
 
-				if(userAnswer.equals(newQuestion.getCorrectAnswer())){
+				if(Integer.parseInt(userAnswer) == newQuestion.getCorrectAnswer()){
 					System.out.println("Correct!");
+					numberCorrect++;
 				}else{
 					System.out.println("Incorrect");
 				}
@@ -41,6 +45,7 @@ public class QuizMaker {
 
 
 			}
+			System.out.println("You got " + numberCorrect + " answers(s) correct out of the total " + numberOfQuestions + "asked.");
 
 		}catch(IOException e){
 			System.out.println("File not found");
