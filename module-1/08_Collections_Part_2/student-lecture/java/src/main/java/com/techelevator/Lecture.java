@@ -36,9 +36,7 @@ public class Lecture {
     //   describeGroup(0, "trumpet") -> "trumpet group"
     public String describeGroup(int count, String instrument) {
         Map<Integer,String> groups = musicalGroupNames(); //creates a Map called group by calling the method from #2
-
         String groupName = groups.get(count); //creates variable groupName that gets the group name value when passed an int
-
         String result = "";
         if(groupName != null) { // if the groupname exists in our Map
             result = instrument + " " + groups.get(count); //result is instrument passed, plus a space, plus the value in the map that corresponds to count passed in

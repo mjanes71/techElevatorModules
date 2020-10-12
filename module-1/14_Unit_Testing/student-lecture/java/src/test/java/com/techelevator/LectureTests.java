@@ -62,9 +62,10 @@ public class LectureTests {
 		/* The assertEquals method validates that two values are equal and
 		 * fails the test if they are not equal */
 
-		String theString = "Java"; // Arrange
-		int length = theString.length(); // Act
-		Assert.assertEquals(4, length); // Assert
+		String theString = "Java"; // Arrange - create a string
+		int length = theString.length(); // Act - call the method being checked
+		Assert.assertEquals(4, length); // Assert- what do you expect to happen when your arrange and act are run?
+		//.assertEquals takes (message (optional) - expected - and then the output of the method being tested)
 	}
 
 	@Test
@@ -84,6 +85,7 @@ public class LectureTests {
 		 * state "Expected: true Actual: false", which sometimes isn't much help in figuring out
 		 * what went wrong */
 		Assert.assertTrue("String did not start with Hello as expected.", startsWithHello); // Assert
+		//.assertTrue takes (message (optional) - boolean)
 	}
 
 	@Test

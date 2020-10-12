@@ -2,6 +2,7 @@ package com.techelevator;
 
 
 import com.techelevator.playingcards.Card;
+import com.techelevator.playingcards.Deck;
 
 public class Lecture {
 
@@ -44,6 +45,13 @@ public class Lecture {
 
         System.out.println(myCard); //everything that system.out.println puts out is a string, so it knows to look for the toString method
 
+        System.out.println("Number of cards created = " + Card.getCreatedCount());
+
+        Deck myDeck = new Deck();
+        myDeck.shuffle();
+        myCard = myDeck.drawCard();
+        myCard.flip();
+        System.out.println(myCard);
 
 
     }

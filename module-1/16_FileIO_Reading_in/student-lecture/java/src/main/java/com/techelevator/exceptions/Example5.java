@@ -13,6 +13,7 @@ public class Example5 {
 			System.out.println("new balance is "+newBalance);
 		} catch(OverdraftException e) {
 			System.out.println("Unfortunately, you can't withdraw more money than you have in the bank...");
+			System.out.println(e.getMessage());
 			System.out.println("The requested amount would overdraw the account by "+e.getOverdraftAmount());
 		}
 		
@@ -24,7 +25,7 @@ public class Example5 {
 	/* OverdraftException is a "checked exception" (i.e. it is a subclass of java.lang.Exception)
 	 * so we need to either catch it or declare that it is thrown.  This method declares that 
 	 * it can throw an OverdraftException using the "throws" keyword */
-	public static double withdraw(double currentBalance, double amountToWithdraw) throws OverdraftException {
+	public static double withdraw(double currentBalance, double amountToWithdraw) throws OverdraftException { // when you say a method throws an exception in the signature, you're saying that exception will be caught by whatever calls the method
 		double newBalance;
 		if(amountToWithdraw <= currentBalance) {
 			newBalance = currentBalance - amountToWithdraw;

@@ -1,5 +1,8 @@
 package com.techelevator.farm;
 
+import java.math.BigDecimal;
+import java.util.BitSet;
+
 public class OldMacdonald {
 	public static void main(String[] args) {
 
@@ -19,10 +22,9 @@ public class OldMacdonald {
 
 
 		Sellable[] merchandise = new Sellable[] { new Cow(), new Chicken(), new Goat(), new Egg()};
-
-		for(Sellable item : merchandise){
-			System.out.println("And that " + item.getName() + " can be yours for just "
-					+ item.getPrice() + " dollars!");
+		for(Sellable thing : merchandise){
+			System.out.println("And that " + thing.getName() + " can be yours for just "
+					+ thing.getPrice() + " dollars!");
 		}
 
 		FarmAnimal critter = new Chicken();
@@ -31,5 +33,29 @@ public class OldMacdonald {
 
 		System.out.println(critter instanceof FarmAnimal); //returns boolean (true as is. would also be true if critter instanceof Chicken)
 		//don't use instanceof in a big else/if mess b/c its unnecessary with polymorphism
+
+
+		System.out.println("---------------------------------- Big Decimal Stuff------------------------------");
+
+		BigDecimal first = new BigDecimal("0.1"); // big decimals are immutable like strings so on line 42, first.add doesn't change the value of first, it just does math
+		BigDecimal second = new BigDecimal("0.2");
+		System.out.println(first.add(second)); // gives you exactly 0.3 with no floating values
+
+		BigDecimal myNumber = BigDecimal.ZERO;
+		myNumber = myNumber.add(second);
+		myNumber = myNumber.add(second);
+		System.out.println(myNumber);
+
+		BigDecimal price = BigDecimal.valueOf(critter.getPrice());//if you just print price right after this, it looks like an int still, but we know its a big decimal b/c now i can add it in the next line to another big decimal (this wouldn't be allowed if it was an int)
+		myNumber = myNumber.add(price);
+		System.out.println(myNumber);
+
+		if(first.compareTo(second) > 0){ //compareTo returns either a 1, a 0, or a -1 --> imagine how you'd like to compare the values, put that symbol to the right of your statement, and then put zero on the other side
+			System.out.println("first is bigger");
+		}
+
 	}
+
+
+
 }

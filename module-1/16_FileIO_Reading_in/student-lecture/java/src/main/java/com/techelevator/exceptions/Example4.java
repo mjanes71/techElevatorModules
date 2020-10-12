@@ -7,7 +7,7 @@ public class Example4 {
 		/* we can throw our own Exceptions in response to exceptional cases 
 		 * see the source code of calculateHotelRoomCharges for an example */
 		int nights = -3;
-		int numberOfGuests = 2;
+		int numberOfGuests = -2;
 		try {
 			double amountOwed = calculateHotelRoomCharges(nights, numberOfGuests);
 			System.out.println("Total owed for "+numberOfGuests+" guests for "+nights+" nights is $"+amountOwed);
@@ -28,7 +28,7 @@ public class Example4 {
 		
 		/* The throw statements below demonstrate how to throw a new Exception. */
 		if(nights < 1) {
-			throw new IllegalArgumentException("Minimum number of nights is 1");
+			throw new IllegalArgumentException("Minimum number of nights is 1");//make new illegal argument exception and pass it the message you want to go back to the user
 		} else if(numberOfGuests < 1) {
 			throw new IllegalArgumentException("Minimum number of guests is 1");
 		}

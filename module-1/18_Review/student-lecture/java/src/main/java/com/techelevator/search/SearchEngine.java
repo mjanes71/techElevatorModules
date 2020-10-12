@@ -1,12 +1,11 @@
 package com.techelevator.search;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.techelevator.util.TELog;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class SearchEngine {
 
@@ -18,11 +17,23 @@ public class SearchEngine {
 		this.indexedWords = new HashMap<>();
 	}
 	
-	public void indexFiles() throws SearchEngineException, Exception {
+	public void indexFiles() throws SearchEngineException {
 		// Step Five: Index files
+		List<String> fileNames = sd.getFiles();
+		for (int i = 0; i < fileNames.size(); i++){
+			Path file = Paths.get(fileNames.get(i));
+			try(Scanner reader = new Scanner(file)) {
+				while (reader.hasNextLine()) {
+					indexWords(i, reader.nextLine());
+				}
+			}catch (IOException e){
+				throw new SearchEngineException((e.getMessage()));
+			}
+			}
+		TELog.log(indexedWords.toString());
+		}
 
 
-	}
 	
 	public List<String> search(String searchString) {
 		List<String> rankedFiles = new ArrayList<>();

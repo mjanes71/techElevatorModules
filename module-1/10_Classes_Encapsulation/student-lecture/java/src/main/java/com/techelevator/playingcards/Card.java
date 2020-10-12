@@ -5,6 +5,11 @@ import java.util.Map;
 
 public class Card {
 
+    private static final String DEFAULT_SUIT = "Spades";
+    private static final String DEFAULT_RANK = "Ace";
+
+    private static int createdCount; //static variables refer to the class, not the object
+
     private String suit;
     private String rank;
     private boolean faceUp = false; //defaults card to be face down
@@ -30,20 +35,26 @@ public class Card {
     }
 
     public Card(){ // This is a constructor (no return, no void, named after class)
-        setSuit("Hearts");
-        setRank("Ace");
+        setSuit(DEFAULT_SUIT);
+        setRank(DEFAULT_RANK);
         //can also rewrite this this("Hearts", "Ace") --> It calls the third constructor down
     }
 
     public Card(String suit){ // if you have multiple methods with the same name, they have to have different types in params
         setSuit(suit); //can only use one constructor at a time
-        setRank("Ace");
+        setRank(DEFAULT_RANK);
         //Could also write this this(suit, "Ace") b/c it calls on the construction in the constructor below
+
     }
 
     public Card(String suit, String rank){
         setSuit(suit);
         setRank(rank);
+        createdCount++; //used to pass a new value to the static variable when a new card is created
+    }
+
+    public static int getCreatedCount() {
+        return createdCount;
     }
 
     public String getSuit(){ //getter (public method) for suit
@@ -95,7 +106,11 @@ public class Card {
         return this.getValue() > rankValues.get(rank);
     }
     public String toString(){ // very very very common method written into classes
-        return getName();
+        if(isFaceUp()) {
+            return getName();
+        }else{
+            return "Face Down Card";
+        }
     }
 
     public boolean equals(Object otherObject){ //another super common method written into classes
@@ -106,6 +121,8 @@ public class Card {
         }
         return result;
     }
+// you can make variables "final" --> final int a = 0; so that you can't change their value without throwing a red flag
+//if a variable is both static AND final, it's considered a "constant" (see syntax at top of this code)
 
 
 
