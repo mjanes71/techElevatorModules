@@ -21,23 +21,44 @@ public class App {
     }
 
     public Auction[] listAllAuctions() {
-        // api code here
-        return null;
+       Auction[] auctions = restTemplate.getForObject(API_URL, Auction[].class);
+        return auctions;
     }
 
     public Auction listDetailsForAuction() {
-        // api code here
-        return null;
+        Auction result = null;
+        System.out.print("Enter a valid ID number to see auction details: ");
+        try {
+            Integer requestedId = Integer.parseInt(scanner.nextLine());
+            result = restTemplate.getForObject(API_URL + "/" + requestedId, Auction.class);
+        }catch (Exception e){
+            return result;
+        }
+        return result;
     }
 
     public Auction[] findAuctionsSearchTitle() {
-        // api code here
-        return null;
+        Auction[] auctions = null;
+        System.out.print("Enter the name of an auction to see details: ");
+        try {
+            String requestedTitle = scanner.nextLine();
+            auctions = restTemplate.getForObject(API_URL + "?title_like=" + requestedTitle, Auction[].class);
+        }catch (Exception e){
+            return auctions;
+        }
+        return auctions;
     }
 
     public Auction[] findAuctionsSearchPrice() {
-        // api code here
-        return null;
+        Auction[] auctions = null;
+        System.out.print("Enter the price to search for:  ");
+        try {
+            Double requestedPrice = Double.parseDouble(scanner.nextLine());
+            auctions = restTemplate.getForObject(API_URL + "?currentBid_lte=" + requestedPrice, Auction[].class);
+        }catch (NumberFormatException e){
+            return auctions;
+        }
+        return auctions;
     }
 
     private void run() {
@@ -106,5 +127,4 @@ public class App {
             System.out.println();
         }
     }
-
 }
