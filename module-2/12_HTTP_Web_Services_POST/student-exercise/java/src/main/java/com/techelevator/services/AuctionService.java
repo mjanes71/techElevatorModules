@@ -69,18 +69,35 @@ public class AuctionService {
     }
 
     public Auction add(String auctionString) {
-        // place code here
-        return null;
+        Auction newAuction = makeAuction(auctionString);
+        HttpEntity<Auction> entity = makeEntity(newAuction);
+        try{
+           return newAuction = restTemplate.postForObject(baseUrl, entity, Auction.class);
+        }catch (RestClientResponseException | ResourceAccessException exception){
+            return null;
+        }
     }
 
     public Auction update(String auctionString) {
-        // place code here
-        return null;
+        Auction newAuction = makeAuction(auctionString);
+        HttpEntity<Auction> entity = makeEntity(newAuction);
+        try{
+            restTemplate.put(baseUrl + "/" + newAuction.getId(), entity);
+            return newAuction;
+        }catch (RestClientResponseException | ResourceAccessException | NullPointerException exception){
+            return null;
+        }
     }
 
     public boolean delete(int id) {
-        // place code here
-        return false;
+        boolean didDelete;
+        try{
+            restTemplate.delete(baseUrl + "/" + id);
+            didDelete = true;
+        }catch (RestClientResponseException | ResourceAccessException exception){
+            didDelete = false;
+        }
+        return didDelete;
     }
 
     private HttpEntity<Auction> makeEntity(Auction auction) {
