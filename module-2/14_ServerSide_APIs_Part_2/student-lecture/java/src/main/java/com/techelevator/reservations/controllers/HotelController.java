@@ -8,6 +8,7 @@ import com.techelevator.reservations.models.Hotel;
 import com.techelevator.reservations.models.Reservation;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -85,8 +86,16 @@ public class HotelController {
      */
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/hotels/{id}/reservations", method = RequestMethod.POST)
-    public Reservation addReservation(@RequestBody Reservation reservation, @PathVariable("id") int hotelID)
+    public Reservation addReservation(@Valid @RequestBody Reservation reservation, @PathVariable("id") int hotelID)
             throws HotelNotFoundException {
+//        if (reservation.getHotelID() == 0) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You have to include a hotel id on the object.");
+//        }
+
+        //below is an example of manual validation
+//        if (reservation.getFullName().isEmpty()){
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You have to include a reservation name on the object.");
+//        }
         return reservationDAO.create(reservation, hotelID);
     }
 
@@ -120,6 +129,19 @@ public class HotelController {
         }
 
         return filteredHotels;
+    }
+
+
+    @PutMapping(path = "/reservations/{id}")
+    public Reservation updateReservation(@PathVariable int id,
+                                         @ Valid @RequestBody Reservation updatedReservation) throws ReservationNotFoundException{
+        return reservationDAO.update(updatedReservation, id);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping(path = "/reservations/{id}")
+    public void deleteReservation(@PathVariable int id) throws ReservationNotFoundException{
+        reservationDAO.delete(id);
     }
 
 }

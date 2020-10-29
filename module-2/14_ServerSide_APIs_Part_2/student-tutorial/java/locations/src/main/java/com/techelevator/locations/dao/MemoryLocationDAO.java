@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component //annotation that makes objects of this class injectable
 public class MemoryLocationDAO implements LocationDAO {
 
     private List<Location> locations = new ArrayList<>();

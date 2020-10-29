@@ -69,6 +69,9 @@ public class JdbcCityDao implements CityDao {
 				" population =? WHERE id = ?;";
 		jdbcTemplate.update(sql, city.getName(), city.getDistrict(), city.getCountryCode(),
 				city.getPopulation(), city.getId());
+//		if(updatedCount != 1){
+//			throw new RuntimeException("Unexpected number of cities updated.");
+
 	}
 
 	@Override
@@ -88,5 +91,7 @@ public class JdbcCityDao implements CityDao {
 		city.setPopulation(rowSet.getInt("population"));
 		return city;
 	}
+
+
 
 }

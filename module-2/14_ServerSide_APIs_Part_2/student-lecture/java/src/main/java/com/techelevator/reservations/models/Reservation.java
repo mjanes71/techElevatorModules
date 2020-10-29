@@ -1,18 +1,38 @@
 package com.techelevator.reservations.models;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import com.techelevator.reservations.dao.HotelDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.validation.constraints.*;
 
 public class Reservation {
 
+
+    @Autowired
+    private HotelDAO hotelDAO;
+
     private int id;
+    @Min(value = 1, message = "The hotel id field is required you goose.")
     private int hotelID;
+    @NotBlank(message = "Make sure you provide a name for the reservation you goose.")
     private String fullName;
+    @NotBlank (message = "Make sure you provide a check-in date you goose.")
     private String checkinDate;
+    @NotBlank (message = "Make sure you provide a check-out date you goose.")
     private String checkoutDate;
+    @Min (value = 1, message = "There must be at least one guest to make a reservation.")
+    @Max(value = 5, message = "This hotel only has rooms that can accommodate up to 5 people.")
     private int guests;
+
+    @AssertTrue
+    private boolean hotelIdIsValid(){
+        for(Hotel hotel : hotelDAO.list()){
+            if (hotel.getId() == hotelID){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public Reservation() {
 
