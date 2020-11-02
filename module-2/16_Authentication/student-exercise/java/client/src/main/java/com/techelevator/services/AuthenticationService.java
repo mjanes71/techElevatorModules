@@ -22,6 +22,10 @@ public class AuthenticationService {
         LoginDTO loginDTO = new LoginDTO(credentials);
         ResponseEntity<Map> response = null;
         try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            HttpEntity<LoginDTO> entity = new HttpEntity<>(loginDTO, headers);
+            response = restTemplate.exchange(baseUrl + "/login" , HttpMethod.POST, entity, Map.class);
         	// create the HttpHeaders and HttpEntity, and then send the login request here
 
         } catch(RestClientResponseException ex) {

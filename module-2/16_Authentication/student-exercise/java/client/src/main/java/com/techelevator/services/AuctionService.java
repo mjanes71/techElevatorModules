@@ -23,7 +23,8 @@ public class AuctionService {
     public Auction[] getAll() throws AuctionServiceException {
         Auction[] auctions = null;
         try {
-            // send request here
+            auctions = restTemplate.exchange(baseUrl + "auctions", HttpMethod.GET, makeAuthEntity(), Auction[].class).getBody();
+
         } catch (RestClientResponseException ex) {
             throw new AuctionServiceException(ex.getRawStatusCode() + " : " + ex.getResponseBodyAsString());
         }
@@ -33,8 +34,7 @@ public class AuctionService {
     public Auction getOne(int id) throws AuctionServiceException {
         Auction auction = null;
         try {
-            auction = restTemplate
-                    .exchange(baseUrl + "auctions/" + id, HttpMethod.GET, makeAuthEntity(), Auction.class).getBody();
+            auction = restTemplate.exchange(baseUrl + "auctions/" + id, HttpMethod.GET, makeAuthEntity(), Auction.class).getBody();
         } catch (RestClientResponseException ex) {
             throw new AuctionServiceException(ex.getRawStatusCode() + " : " + ex.getResponseBodyAsString());
         }
