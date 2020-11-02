@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/auctions")
+@PreAuthorize("isAuthenticated()")
 public class AuctionController {
 
     private final AuctionDAO dao;
@@ -22,6 +23,7 @@ public class AuctionController {
     }
 
     @RequestMapping( path = "", method = RequestMethod.GET)
+    @PreAuthorize("permitAll")
     public List<Auction> list(@RequestParam(defaultValue = "", name = "title_like") String searchTerm,
                               @RequestParam(defaultValue = "0", name = "currentBid_lte") double maxPrice) {
 
@@ -42,24 +44,27 @@ public class AuctionController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping( path = "", method = RequestMethod.POST)
+    @PreAuthorize("hasAnyRole('CREATOR', 'ADMIN')")
     public Auction create(@Valid @RequestBody Auction auction) {
         return dao.create(auction);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('CREATOR', 'ADMIN')")
     public Auction update(@Valid @RequestBody Auction auction, @PathVariable int id) throws AuctionNotFoundException {
         return dao.update(auction, id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable int id) throws AuctionNotFoundException {
         dao.delete(id);
     }
 
     @RequestMapping( path = "/whoami")
-    public String whoAmI() {
-        return "";
+    public String whoAmI(Principal principal) {
+        return principal.getName();
     }
 
 }
