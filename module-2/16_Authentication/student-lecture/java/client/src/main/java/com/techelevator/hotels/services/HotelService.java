@@ -2,10 +2,8 @@ package com.techelevator.hotels.services;
 
 import com.techelevator.hotels.models.Hotel;
 import com.techelevator.hotels.models.Reservation;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
@@ -38,10 +36,24 @@ public class HotelService {
     Reservation reservation = makeReservation(newReservation);
     if (reservation == null) {
       throw new HotelServiceException(INVALID_RESERVATION_MSG);
+    } if (authToken.isEmpty()){
+      throw new HotelServiceException("Please login to add a reservation.");
     }
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    headers.setBearerAuth(authToken);
+    HttpEntity<Reservation> entity = new HttpEntity<>(reservation, headers);
 
-    // TODO: Fix Me
-    throw new HotelServiceException("NOT IMPLEMENTED");
+    ResponseEntity<Reservation> response;
+
+      try{
+        response = restTemplate.exchange(baseUrl + "hotels/" + reservation.getHotelID() + "/reservations",
+                HttpMethod.POST, entity, Reservation.class);
+
+      }catch (ResourceAccessException | RestClientResponseException e ) {
+        throw new HotelServiceException("Something went wrong. Please try again and make sure you are logged in and sending a valid request");
+      }
+    return response.getBody();
   }
 
   /**

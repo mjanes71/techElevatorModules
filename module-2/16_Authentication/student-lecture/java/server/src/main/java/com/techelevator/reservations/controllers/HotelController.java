@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@PreAuthorize("isAuthenticated()") //forces authentication for all methods in the class
 public class HotelController {
 
     private final HotelDAO hotelDAO;
@@ -31,6 +32,7 @@ public class HotelController {
      *
      * @return a list of all hotels in the system
      */
+    @PreAuthorize("permitAll") //allows anyone to access, overrides the class "preauthorize" annotation for this method only
     @RequestMapping(path = "/hotels", method = RequestMethod.GET)
     public List<Hotel> list() {
         return hotelDAO.list();
@@ -101,6 +103,7 @@ public class HotelController {
      * @throws ReservationNotFoundException
      */
     @RequestMapping(path = "/reservations/{id}", method = RequestMethod.PUT)
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')") //allows you to list multiple roles, if you just do one role, ONLY that role can be authorized (admin is not a keyword)
     public Reservation update(@Valid @RequestBody Reservation reservation, @PathVariable int id)
             throws ReservationNotFoundException {
         return reservationDAO.update(reservation, id);
@@ -113,9 +116,10 @@ public class HotelController {
      * @throws ReservationNotFoundException
      */
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasRole('ADMIN')") // says that you have to have admin role to be able to use this method - role is a claim in the payload of the token
     @RequestMapping(path = "/reservations/{id}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable int id) throws ReservationNotFoundException {
-        auditLog("delete", id, "username");
+    public void delete(@PathVariable int id, Principal principal) throws ReservationNotFoundException { //Principal gets the username of the current logged in user (sort of magical thing that spring boot can do)
+        auditLog("delete", id, principal.getName());
         reservationDAO.delete(id);
     }
 
