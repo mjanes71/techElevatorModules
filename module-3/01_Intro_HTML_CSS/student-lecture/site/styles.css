@@ -1,0 +1,21 @@
+h3{
+    color: rgba(0,0, 220, 0.5); /* alpha value 1 is regular opacity, less than 1 is more and more translucent*/
+}
+
+h1 {
+    color: green;
+    font-size: 42px; /*if you put a space between 42 and px, that means something different than with no space*/
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(200,200,200);
+}
+
+p{
+    color: #000099;
+}
+
+img{
+    height:200px;
+}

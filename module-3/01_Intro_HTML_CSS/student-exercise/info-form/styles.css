@@ -1,0 +1,13 @@
+
+body{
+    background-color: blueviolet;
+}
+
+input[type=text]{
+box-sizing: border-box;
+}
+
+input{
+
+margin: 8px 0;
+}
