@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+
+    --my-border-radius: 10px;
+}
+
+html {
+    height: 100%;
+    font-size: 16px;
+
+}
+
+body {
+    font-family: 'Railway', sans-serif;
+    background-image: linear-gradient(to bottom, white, lightblue);
+}
+
+div.trello-list {
+    display: inline-block;
+    width: 300px;
+    background-color: rgb(146, 176, 202);
+    border-radius: 3%;
+}
+
+div.trello-list h2 {
+    margin: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    
+}
+
+div.trello-list ol{
+    margin: 0;
+    padding: 0;
+
+}
+
+div.trello-list li {
+    list-style: none;
+    background-color: white;
+    font-size: 0.9rem;
+    border-radius: 1px;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+div.trello-list li:hover {
+    background-color: aqua;
+    color: gray;
+}
+
+div.trello-list li:last-child {
+    margin-bottom: 0;
+}
+
+div.trello-list a{
+    display: block;
+    text-decoration: none;
+    color: lightblue;
+    padding: 8px 0px 8px 5px;
+}
+
+div.trello-list a:hover{
+    background-color: aqua;
+    border-bottom-left-radius:  var(--my-border-radius);
+    border-bottom-right-radius: var(--my-border-radius);
+}
+
+div.trello-list {
+    margin-right: 10px;
+    vertical-align: top;
+}
+
+body {
+    white-space: nowrap;
+}
+
+div.trello-list li {
+    white-space: normal;
+}
+
+header > h1, header > p {
+    display: inline-block;
+    height: 20px;
+    padding-right: 20px;
+    vertical-align: middle;
+    color: darkblue;
+    border-right: 1px solid black;
+}
+
+header > h1 {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+header > p {
+    font-size: 0.9rem;
+    padding-left: 5px;
+}
+
+.labels span {
+    display: inline-block;
+    vertical-align: top;
+    width: 35px;
+    height: 8px;
+    border-radius: 3px;
+}
+
+.label.pathway{
+    background-color: red;
+}
+
+.label.individual{
+    background-color: green;
+}
+
+.label.pair{
+    background-color: orange;
+}
+
+.label.general{
+    background-color: yellow;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    height: 50px;
+}
+
+main {
+    margin-top: 50px;
+}

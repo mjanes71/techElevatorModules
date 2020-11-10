@@ -75,7 +75,7 @@ header h1 {
 	white-space: nowrap;
 	overflow: hidden;
 	}
-header h2 { 
+header h2 { /*applies only to h2 inside headers*/
 	background: transparent url(http://csszengarden.com/001/h2.gif) no-repeat top left; 
 	margin-top: 58px; 
 	margin-bottom: 40px; 
@@ -191,4 +191,31 @@ footer a:link, footer a:visited {
 	right: 0; 
 	width: 148px; 
 	height: 110px;
+	}
+
+	#zen-summary{
+		color: orange;
+	}
+
+	.big {
+		font-size: 40px;
+	}
+
+	[role= "article"] {
+		background-color: gold;
+	}
+
+	* {
+		border: 1px solid red;
+	}
+
+	div p {
+		/*this rule applies to paragraphs that are inside divs*/
+		background-color: lightgreen;
+	}
+
+	/* if we said div > p then the rule would only apply to direct p child of divs*/
+
+	p:hover {
+		background-color: blueviolet;
 	}
