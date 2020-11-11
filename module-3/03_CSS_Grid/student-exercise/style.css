@@ -50,3 +50,119 @@ header img {
 #student-picture img{
     border-radius: 50%;
 }
+
+/* Identify Grid Areas*/
+
+#headline {
+    grid-area: headline;
+}
+
+#student-picture {
+    grid-area: picture;
+    text-align: center;
+}
+
+#student-quote {
+    grid-area: quote;
+}
+
+#student-profile {
+    grid-area: profile;
+}
+
+#student-contact {
+    grid-area: contact;
+    text-align: center;
+}
+
+#experience-grid {
+    grid-area: experience;
+}
+
+#experience-code {
+    grid-area: code;
+}
+
+#experience-database {
+    grid-area: database;
+}
+
+#experience-web {
+    grid-area: web;
+}
+
+#experience-design {
+    grid-area: design;
+}
+
+#main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 50px;
+    grid-template-areas: 
+    "headline headline picture"
+    "quote     quote    picture"
+    "profile   profile   contact"
+    "experience experience experience";
+    align-items: center;
+}
+
+#experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 50px;
+    grid-template-areas: 
+    "code     code"
+    "database database"
+    "web      design";
+}
+
+@media screen and (max-width: 1024px){
+    #main-grid {
+        column-gap: 35px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "headline headline"
+        "quote  picture"
+        "quote  contact"
+        "profile profile"
+        "experience experience";
+
+    }
+
+    #experience-grid {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-areas: 
+        "code  web"
+        "database  design";
+
+    }
+}
+
+@media screen and (max-width: 450px){
+    #main-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "headline"
+        "picture"
+        "contact"
+        "quote"
+        "profile"
+        "experience";
+
+    }
+
+    #experience-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "code"
+        "web"
+        "database"
+        "design";
+
+    }
+}
+
