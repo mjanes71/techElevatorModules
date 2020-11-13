@@ -18,15 +18,22 @@ public class CartJdbcDao implements CartDao {
 
 	@Override
 	public void save(Cart newCart) {
-		// Implement this method to save cart to database
+		String sql = "INSERT INTO carts (username, cookie_value, created) VALUES (?, ?, ?);";
+		jdbcTemplate.update(sql, newCart.getUsername(), newCart.getCookieValue(), newCart.getCreated());
 
 	}
 
 	@Override
 	public List<Cart> getAllCarts() {
-		// Implement this method to pull in all carts from database
+		List<Cart> listOfCarts = new ArrayList<>();
+		String sql = "SELECT id, username, cookie_value, created FROM carts;";
+		SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+		while (rowSet.next()){
+			Cart myCart = mapRowToCart(rowSet);
+			listOfCarts.add(myCart);
+		}
 
-		return null;
+		return listOfCarts;
 	}
 
 	private Cart mapRowToCart(SqlRowSet results) {
