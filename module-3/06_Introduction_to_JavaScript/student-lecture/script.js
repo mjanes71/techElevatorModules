@@ -1,7 +1,7 @@
 /*
     Example of a multi-line comment just like in C#/Java
 */
-
+console.log('Hello from the script.js file.');
 // Single line comment
 
 /**
@@ -10,10 +10,22 @@
  */
 function variables() {
   // Declares a variable where the value cannot be changed
-  // Declares a variable those value can be changed
-  // Declares a variable that will always be an array
-}
+  const daysPerWeek = 7;
 
+  console.log('There are ' + daysPerWeek + ' days in a week.');
+  
+  // Declares a variable those value can be changed
+let daysPerMonth = 30;
+console.log(`There are  ${daysPerMonth} days in a month. This is a template literal.` );
+
+  // Declares a variable that will always be an array
+
+  const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  console.log(weekdays);
+  console.table(weekdays); //prints out a nice table view
+
+  return null;
+}
 /**
  * Functions can also accept parameters.
  * Notice the parameters do not have types.
@@ -36,7 +48,7 @@ function equality(x, y) {
   console.log(`x is ${typeof x}`);
   console.log(`y is ${typeof y}`);
 
-  console.log(`x == y : ${x == y}`); // true
+  console.log(`x == y : ${x == y}`); // true, this is a dark corner. stay the heck away from this
   console.log(`x === y : ${x === y}`); // false
 }
 
@@ -63,7 +75,7 @@ function falsy(x) {
 function objects() {
   const person = {
     firstName: 'Bill',
-    lastName: 'Lumbergh',
+    'last name': 'Lumbergh',
     age: 42,
     employees: [
       'Peter Gibbons',
@@ -74,10 +86,19 @@ function objects() {
   };
 
   // Log the object
+  console.log(person);
 
   // Log the first and last name
+  console.log(`${person.firstName} is my first name. ${person['last name']} is my last name.`)
 
   // Log each employee
+for (let i = 0; i < person.employees.length; i++){ // for i
+  console.log(`Employee ${i} is ${person.employees[i]}`);
+}
+
+for (let employee of person.employees) { //for each
+  console.log(`Employee: ${employee}`);
+}
 }
 
 /*
@@ -113,6 +134,10 @@ function mathFunctions() {
   console.log('Math.floor(1.99) : ' + Math.floor(1.99));
   console.log('Math.ceil(1.01) : ' + Math.ceil(1.01));
   console.log('Math.random() : ' + Math.random());
+}
+
+function rollDie() {
+  return Math.floor(Math.random() *6) + 1;
 }
 
 /*
@@ -151,19 +176,51 @@ function arrays() {
   console.log(`names[1]: ${names[1]}`);
 
   //.join()
+console.log(names.join(', ')); //you determine how to display string instead of the default ,
+  //.push() & .pop() //stuff on and off end
+  names.push('Schemp');
+  console.log(names);
 
-  //.push() & .pop()
+ let removedName = names.pop();
+  console.log(names);
+  console.log(removedName);
 
-  //.shift() & .unshift()
+
+  //.shift() & .unshift() // stuff on and off front
+  names.unshift('Schemp');
+  console.log(names);
+
+  let anotherNameRemoved = names.shift();
+  console.log(names);
+  console.log(anotherNameRemoved);
 
   //.concat()
 
-  //.slice()
+  const lesserKnownStooges = ['Schemp', 'Joe'];
+  const moreNames = names.concat(lesserKnownStooges);
+  console.log(names);
+  console.log(moreNames);
 
-  //.reverse() and .sort()
+  //.slice() like substring but for arrays. creates new array
+  console.log(names.slice(1,3));
+
+  //.reverse() and .sort()  don't return new arrays, affect the passed array
+
+  names.reverse();
+  console.log(names);
+
+  names.sort();
+  console.log(names);
 
   //.indexOf() and .lastIndexOf()
+  console.log(names.indexOf('Larry'));
 
-  //spread operator (...)
+  //spread operator (...) allows you to combine arrays easily
+
+  const allStooges = [...names, 'David', ...lesserKnownStooges];
+  console.log(allStooges);
+
+  const sortedStooges = [...allStooges].sort(); //if you use this will the sort and reverse functions, it makes a copy of the array to sort or reverse instead of affecting change on the original
+  
 
 }

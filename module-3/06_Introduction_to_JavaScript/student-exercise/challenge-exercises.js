@@ -71,7 +71,7 @@ function titleCase(title, others) {
         let finalTitle = '';
         for (let i = 0; i < result.length; i++) {
             if (othersArr.includes(result[i].toLowerCase().trim()) && i > 0) {
-                finalTitle += result[i].toLowerCase();
+                finalTitle += result[i] .toLowerCase();
             } else {
                 finalTitle += result[i];
             }
