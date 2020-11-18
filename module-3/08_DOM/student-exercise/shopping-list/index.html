@@ -7,9 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DOM Exercise</title>
     <link rel="stylesheet" href="css/main.css">
+  
+
 </head>
 
-<body>
+<header>
+    <a href="/shopping-list/index.html">My Shopping List</a>
+    <a href="/Recipe_Ingredients/recipes.html">Recipes</a>
+</header>
+
+<body class="hot-body">
 
     <div class="shopping-list">
         <h1 id="title"></h1>
@@ -18,9 +25,16 @@
         </ul>
     </div>
 
-    <a href="#" class="btn">
-        Mark All Completed
-    </a>
+    <div id="all-them-buttons">
+        <a href="#" class="btn" id="completed">
+            Mark All Completed
+        </a>
+        <a href="#" class="btn" id="needed">
+            Mark All Needed
+        </a>
+
+    </div>
+    
 
     <script src="js/shopping-list.js"></script>
 </body>

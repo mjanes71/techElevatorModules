@@ -35,6 +35,11 @@ function markCompleted() {
   listItems.forEach(item => item.classList.add('completed'));
 }
 
+function markNeeded(){
+  let listItems = document.querySelectorAll('#groceries li');
+  listItems.forEach(item => item.classList.remove('completed'));
+}
+
 setPageTitle();
 
 displayGroceries();
@@ -42,6 +47,12 @@ displayGroceries();
 // Don't worry too much about what is going on here, we will cover this when we discuss events.
 document.addEventListener('DOMContentLoaded', () => {
   // When the DOM Content has loaded attach a click listener to the button
-  const button = document.querySelector('.btn');
-  button.addEventListener('click', markCompleted);
+  const button1 = document.querySelector('#completed');
+  button1.addEventListener('click', markCompleted);
+
+  const button2 = document.querySelector('#needed');
+  button2.addEventListener('click', markNeeded);
+
 });
+
+
