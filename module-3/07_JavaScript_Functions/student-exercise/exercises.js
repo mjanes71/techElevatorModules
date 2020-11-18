@@ -64,10 +64,10 @@ function useParameterToFilterArray(filterFunction){
  * @returns {number} the sum of all the parameters (or arguments)
  */
 
- function addAll(num){
+ function addAll(...num){
      let counter = 0;
-     for (let i = 0; i < arguments.length; i++){
-         counter += arguments[i];
+     for (let i = 0; i < num.length; i++){
+         counter += num[i];
      }
      return counter;
  }
