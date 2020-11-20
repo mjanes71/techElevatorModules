@@ -19,7 +19,7 @@
  * @param {boolean} [recommendation=false] does the student have a recommendation
  * @returns {boolean} true if they are admitted
  */
-function isAdmitted (gpa, satScore = 0, recommendation = false){
+function isAdmitted(gpa, satScore = 0, recommendation = false) {
     return gpa > 4.0 || satScore > 1300 || (gpa > 3.0 && recommendation) || (satScore > 1200 && recommendation);
 }
 
@@ -30,7 +30,7 @@ function isAdmitted (gpa, satScore = 0, recommendation = false){
  * @param {function} filterFunction the function to filter with
  * @returns {number[]} the filtered array
  */
-function useParameterToFilterArray(filterFunction){
+function useParameterToFilterArray(filterFunction) {
     let unfilteredArray = [1, 2, 3, 4, 5, 6];
     return unfilteredArray.filter(n => filterFunction(n));
 }
@@ -49,10 +49,10 @@ function useParameterToFilterArray(filterFunction){
  * @returns {number} the resultant number
  */
 
- function makeNumber(first, second='') {
-     let str =  `${first}${second}`;
-     return Number(str);
- }
+function makeNumber(first, second = '') {
+    let str = `${first}${second}`;
+    return Number(str);
+}
 
 
 
@@ -64,13 +64,13 @@ function useParameterToFilterArray(filterFunction){
  * @returns {number} the sum of all the parameters (or arguments)
  */
 
- function addAll(...num){
-     let counter = 0;
-     for (let i = 0; i < num.length; i++){
-         counter += num[i];
-     }
-     return counter;
- }
+function addAll(...num) {
+    let counter = 0;
+    for (let i = 0; i < num.length; i++) {
+        counter += num[i];
+    }
+    return counter;
+}
 
 /*
  * 5) Write and document a function called makeHappy that takes
@@ -78,14 +78,14 @@ function useParameterToFilterArray(filterFunction){
  * words and returns them as a new array. Use the `map` function.
  */
 
- /**
-  * A function to make all the phrases in an array a bit happier
-  * @param {string[]} arr word or phrases that need to be happified
-  * @returns {string[]} all words predicated by happy
-  */
- function makeHappy(arr){
-     return arr.map(n => `Happy ${n}`);
- }
+/**
+ * A function to make all the phrases in an array a bit happier
+ * @param {string[]} arr word or phrases that need to be happified
+ * @returns {string[]} all words predicated by happy
+ */
+function makeHappy(arr) {
+    return arr.map(n => `Happy ${n}`);
+}
 
 /*
  * 6) Write and document a function called getFullAddressesOfProperties
@@ -115,10 +115,10 @@ function useParameterToFilterArray(filterFunction){
  *     * zip
  * @returns {string[]} A list of formatted address as an array of strings
  */
- function getFullAddressesOfProperties(arrOfObjects){
-     return arrOfObjects.map(obj => `${obj.streetNumber} ${obj.streetName} ${obj.streetType} ${obj.city} ${obj.state} ${obj.zip}`);
+function getFullAddressesOfProperties(arrOfObjects) {
+    return arrOfObjects.map(obj => `${obj.streetNumber} ${obj.streetName} ${obj.streetType} ${obj.city} ${obj.state} ${obj.zip}`);
 
- }
+}
 
 /*
  * 7) Write and document a function called findLargest.
@@ -127,20 +127,20 @@ function useParameterToFilterArray(filterFunction){
  * It must work for strings and numbers.
  */
 
- /**
-  * Function to look through a list of values and find the largest one... FOR SCIENCE
-  * @param {number[]} arr numbers randomly arranged, can also take a string[]
-  * @returns {number} the largest value in the array as a number or a string
-  */
- function findLargest(arr){
-     let largest = arr[0];
-     arr.forEach(item => 
-        {if (item > largest){
+/**
+ * Function to look through a list of values and find the largest one... FOR SCIENCE
+ * @param {number[]} arr numbers randomly arranged, can also take a string[]
+ * @returns {number} the largest value in the array as a number or a string
+ */
+function findLargest(arr) {
+    let largest = arr[0];
+    arr.forEach(item => {
+        if (item > largest) {
             largest = item;
         }
-        });
-        return largest;
- }
+    });
+    return largest;
+}
 
 /*
  * CHALLENGE
@@ -160,12 +160,12 @@ function useParameterToFilterArray(filterFunction){
  * Read the tests to verify you have the correct behavior.
  */
 
- /**
-  * A function that helps Joe figure out our total points from every module and every assignment in those modules
-  * @param {Array[]} arr Lists of numbers as arrays
-  * @returns {number} the sum of every number from all arrays
-  */
- function getSumOfSubArrayValues(arr = []){
-     return arr.reduce((sum, arrItem) => sum + (arrItem.reduce((total, num) => total + num)), 0);
+/**
+ * A function that helps Joe figure out our total points from every module and every assignment in those modules
+ * @param {Array[]} arr Lists of numbers as arrays
+ * @returns {number} the sum of every number from all arrays
+ */
+function getSumOfSubArrayValues(arr = []) {
+    return arr.reduce((sum, arrItem) => sum + (arrItem.reduce((total, num) => total + num)), 0);
 
- }
+}

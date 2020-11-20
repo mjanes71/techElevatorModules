@@ -15,5 +15,5 @@ SELECT added, COUNT(id) FROM items GROUP BY added;
 SELECT username, created, name 
 FROM carts
 JOIN items ON carts.id = items.cart_id
-WHERE added > '2019-08-31' AND added < '2019-10-01';
+WHERE created > '2019-08-31' AND created < '2019-10-01';
 

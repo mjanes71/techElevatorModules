@@ -62,12 +62,61 @@ function displayReview(review) {
 
 // LECTURE STARTS HERE ---------------------------------------------------------------
 
-// set the product reviews page title
-setPageTitle();
-// set the product reviews page description
-setPageDescription();
-// display all of the product reviews on our page
-displayReviews();
+document.addEventListener('DOMContentLoaded', e => {
+  // set the product reviews page title
+  setPageTitle();
+  // set the product reviews page description
+  setPageDescription();
+  // display all of the product reviews on our page
+  displayReviews();
+
+
+ // * Take an event on the description and swap out the description for a text box.
+
+ const description = document.querySelector('.description');
+ description.addEventListener('click', e => {
+   toggleDescriptionEdit(description);
+
+ });
+
+ //* Take an event on the text box and set the description to the contents
+ //* of the text box and then hide the text box and show the description.
+
+ const descriptionInput = document.getElementById('inputDesc');
+ descriptionInput.addEventListener('keyup', e => {
+   if (e.key === 'Enter'){
+     exitDescriptionEdit(e.target, true); //e.target is the same as descriptionInput in this example
+   } if (e.key === 'Escape'){
+     exitDescriptionEdit(e.target, false);
+   } 
+
+ });
+
+ descriptionInput.addEventListener('mouseleave', e => {
+  exitDescriptionEdit(e.target, false);
+
+ });
+
+// * I will show / hide the add review form
+
+const showHideButton = document.getElementById('btnToggleForm');
+showHideButton.addEventListener('click', showHideForm); //don't have to put parens after the function name because you don't want the outcome of the function as a param, you want the function itself
+
+//I will save a new review
+
+const submitButton = document.getElementById('btnSaveReview');
+submitButton.addEventListener('click', e => {
+  e.preventDefault(); //prevents the default behavior of this button
+  saveReview();
+
+});
+});
+
+
+
+
+
+
 
 /**
  * Take an event on the description and swap out the description for a text box.
@@ -132,4 +181,23 @@ function resetFormValues() {
 /**
  * I will save the review that was added using the add review from
  */
-function saveReview() {}
+function saveReview() { 
+  const nameInput = document.getElementById('name');
+  const titleInput = document.getElementById('title');
+  const reviewInput = document.getElementById('review');
+  const ratingInput = document.getElementById('rating');
+
+  
+  const newReview = {
+    reviewer: nameInput.value,
+    title: titleInput.value,
+    review: reviewInput.value,
+    rating: ratingInput.value
+  }
+
+  reviews.push(newReview);
+  displayReview(newReview);
+  showHideForm();
+
+
+}
