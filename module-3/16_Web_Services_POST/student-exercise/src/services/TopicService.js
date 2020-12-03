@@ -12,6 +12,20 @@ export default {
 
   get(id) {
     return http.get(`/topics/${id}`);
+  },
+
+  createTopic(newTopic){
+    return http.post('/topics/', newTopic);
+  },
+
+  updateTopic(newTopic){
+    return http.put(`/topics/${newTopic.id}`, newTopic)
+  },
+
+  deleteTopic(topicId) {
+    return http.delete(`/topics/${topicId}`);
   }
+
+  
 
 }

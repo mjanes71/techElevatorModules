@@ -24,7 +24,17 @@ export default {
     };
   },
   methods: {
-    saveTopic() {}
+    saveTopic() {
+      topicService.createTopic(this.topic).then(response =>{
+        if(response.status === 201) {
+          this.$router.push({name: 'Home'});
+        }
+
+      }).catch(error=> {
+        console.log('There was an error.');
+
+      });
+    }
   }
 };
 </script>

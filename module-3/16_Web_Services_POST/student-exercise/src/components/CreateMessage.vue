@@ -32,6 +32,12 @@ export default {
   },
   methods: {
     saveMessage() {
+      messageService.createMessage(this.message).then(response => {
+        if(response.status === 201){
+          this.$router.push(`/${this.message.topicId}`);
+        }
+
+      });
 
     }
   }
